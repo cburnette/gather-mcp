@@ -42,7 +42,7 @@ type LookupArgs struct {
 func lookupMachineTool(ctx context.Context, request *mcp.CallToolRequest, args LookupArgs) (*mcp.CallToolResult, any, error) {
 	log.Printf("Received lookup request for IP: %s", args.IP)
 	
-	output, err := exec.Command("grep", args.IP, "data/machines").Output()
+	output, err := exec.Command("grep", "-w", args.IP, "data/machines").Output()
 	text := "No machine found for IP: " + args.IP
 	if err == nil {
 		text = strings.TrimSpace(string(output))
