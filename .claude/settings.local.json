@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "mcp__gather__lookup-machine-by-ip",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []

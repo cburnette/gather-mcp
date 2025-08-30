@@ -6,7 +6,7 @@ A Model Context Protocol (MCP) server that provides machine lookup functionality
 
 - **IP Lookup**: Find machine information by searching for IP addresses in the machines database
 - **MCP Integration**: Works seamlessly with Claude Code and other MCP-compatible clients
-- **HTTP Server**: Provides both MCP protocol and HTTP access
+- **HTTP Server**: Provides MCP protocol over HTTP
 
 ## Setup Instructions
 
@@ -49,7 +49,7 @@ The server will start on port 8080 by default. You can specify a different port 
 
 ### Data File
 
-The server has a `data/machines` file containing machine information with IP addresses. Each line contains an IP address and associated machine details. IP address are between 10.0.1.1 and 10.0.1.100.
+The server has a `data/machines` file containing machine information with IP addresses. Each line contains an IP address and associated machine details. IP addresses are between 10.0.1.1 and 10.0.1.100.
 
 ## Claude Code Configuration
 
