@@ -5,6 +5,8 @@ import (
 	"flag"
 	"log"
 	"net/http"
+	"os/exec"
+	"strings"
 
 	"github.com/modelcontextprotocol/go-sdk/mcp"
 )
@@ -39,11 +41,14 @@ type LookupArgs struct {
 
 func lookupMachineTool(ctx context.Context, request *mcp.CallToolRequest, args LookupArgs) (*mcp.CallToolResult, any, error) {
 	log.Printf("Received lookup request for IP: %s", args.IP)
+	
+	output, err := exec.Command("grep", args.IP, "data/machines").Output()
+	text := "No machine found for IP: " + args.IP
+	if err == nil {
+		text = strings.TrimSpace(string(output))
+	}
+	
 	return &mcp.CallToolResult{
-		Content: []mcp.Content{
-			&mcp.TextContent{
-				Text: "TODO: Implement machine lookup for IP: " + args.IP,
-			},
-		},
+		Content: []mcp.Content{&mcp.TextContent{Text: text}},
 	}, nil, nil
 }

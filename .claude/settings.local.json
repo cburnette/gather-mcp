@@ -1,10 +1,6 @@
 {
   "permissions": {
-    "allow": [
-      "mcp__simple-server__hello",
-      "Bash(go:*)",
-      "mcp__gather__lookup-machine-by-ip"
-    ],
+    "allow": ["mcp__gather__lookup-machine-by-ip"],
     "deny": [],
     "ask": []
   }
